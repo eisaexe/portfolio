@@ -1,21 +1,9 @@
 import { useEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
 
+import heroImg from '../assets/hero.png';
+
 function PhotoAvatar() {
-  const [photo, setPhoto] = useState(() => localStorage.getItem('hero-photo') || null);
-  const inputRef = useRef(null);
-
-  const handleFile = (e) => {
-    const file = e.target.files?.[0];
-    if (!file) return;
-    const reader = new FileReader();
-    reader.onload = () => {
-      localStorage.setItem('hero-photo', reader.result);
-      setPhoto(reader.result);
-    };
-    reader.readAsDataURL(file);
-  };
-
   return (
     <div className="hero-avatar-wrap">
       {/* Spinning orbit rings */}
@@ -31,25 +19,24 @@ function PhotoAvatar() {
           }}
         />
       ))}
-      {/* Photo or initials */}
+      {/* Photo */}
       <div className="hero-avatar-circle">
-        {photo ? (
-          <img src={photo} alt="Mohammed Eisa" className="hero-avatar-img" />
-        ) : (
-          <>
-            <span className="hero-avatar-initials-text g-all">ME</span>
-            <div className="hero-avatar-upload-hint">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
-                <polyline points="17 8 12 3 7 8" />
-                <line x1="12" y1="3" x2="12" y2="15" />
-              </svg>
-
-            </div>
-          </>
-        )}
+        <img 
+          src={heroImg} 
+          alt="Mohammed Eisa" 
+          className="hero-avatar-img" 
+          style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+          onError={(e) => {
+            e.target.style.display = 'none';
+            if (e.target.nextSibling) {
+              e.target.nextSibling.style.display = 'flex';
+            }
+          }}
+        />
+        <div style={{ display: 'none', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', width: '100%', height: '100%' }}>
+          <span className="hero-avatar-initials-text g-all">ME</span>
+        </div>
       </div>
-      <input ref={inputRef} type="file" accept="image/*" onChange={handleFile} style={{ display: 'none' }} />
     </div>
   );
 }

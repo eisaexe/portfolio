@@ -20,11 +20,11 @@
   --text:        #e2e8f0;
   --text-muted:  #94a3b8;
   --muted:       #4a5568;
-  --glass:       rgba(255,255,255,0.035);
-  --glass-b:     rgba(255,255,255,0.08);
-  --nav-bg:      rgba(5,7,15,0.75);
-  --card-bg:     rgba(255,255,255,0.03);
-  --card-border: rgba(255,255,255,0.07);
+  --glass:       rgba(10,13,25,0.65);
+  --glass-b:     rgba(255,255,255,0.1);
+  --nav-bg:      rgba(5,7,15,0.85);
+  --card-bg:     rgba(10,13,25,0.7);
+  --card-border: rgba(255,255,255,0.12);
   --shadow:      rgba(0,0,0,0.6);
   --footer-text: #2d3748;
 }
@@ -736,15 +736,18 @@ html.light-mode .g-all {
 /* Chat window */
 .chat-window {
   position: fixed;
-  bottom: 5.5rem;
+  bottom: 6rem;
   right: 1.5rem;
-  z-index: 100;
-  width: 370px;
+  z-index: 999;
+  width: 380px;
   display: flex;
   flex-direction: column;
-  max-height: 520px;
+  max-height: 600px;
+  height: 65vh;
   transition: opacity 0.35s, transform 0.35s;
   transform-origin: bottom right;
+  border: 1px solid var(--cyan);
+  box-shadow: 0 10px 40px rgba(0,238,255,0.15);
 }
 
 .chat-window.closed {
@@ -991,7 +994,8 @@ html.light-mode .g-all {
   .chat-window {
     width: calc(100vw - 2rem);
     right: 1rem;
-    bottom: 5rem;
+    bottom: 5.5rem;
+    height: 70vh;
   }
 
   .chat-launcher-wrap {

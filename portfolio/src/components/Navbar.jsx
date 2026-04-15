@@ -7,6 +7,8 @@ const links = [
   { label: 'Contact',  href: '#contact' },
 ];
 
+import heroImg from '../assets/hero.png';
+
 // Sun icon
 function SunIcon() {
   return (
@@ -71,7 +73,20 @@ export default function Navbar({ darkMode, toggleDarkMode }) {
         <a href="#hero" style={{ display: 'flex', alignItems: 'center', gap: '0.65rem', textDecoration: 'none', flexShrink: 0 }}>
           <div className="nav-avatar-ring">
             <div className="nav-avatar-inner">
-              <span className="nav-avatar-initials">ME</span>
+              <img 
+                src={heroImg} 
+                alt="ME" 
+                style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                onError={(e) => {
+                  e.target.style.display = 'none';
+                  if (e.target.nextSibling) {
+                    e.target.nextSibling.style.display = 'flex';
+                  }
+                }}
+              />
+              <div style={{ display: 'none', alignItems: 'center', justifyContent: 'center', width: '100%', height: '100%' }}>
+                <span className="nav-avatar-initials">ME</span>
+              </div>
             </div>
           </div>
           <span className="nav-brand-text">M. Eisa</span>
