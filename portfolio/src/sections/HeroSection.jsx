@@ -17,7 +17,7 @@ function PhotoAvatar() {
   };
 
   return (
-    <div className="hero-avatar-wrap" onClick={() => inputRef.current?.click()} title="Click to upload your photo">
+    <div className="hero-avatar-wrap">
       {/* Spinning orbit rings */}
       {[96, 132, 172].map((sz, i) => (
         <div
