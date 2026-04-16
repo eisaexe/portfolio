@@ -7,7 +7,7 @@ const links = [
   { label: 'Contact',  href: '#contact' },
 ];
 
-import heroImg from '../assets/hero.png';
+import heroImg from '../assets/mypfp.jpg';
 
 // Sun icon
 function SunIcon() {

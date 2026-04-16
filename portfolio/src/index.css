@@ -748,6 +748,8 @@ html.light-mode .g-all {
   transform-origin: bottom right;
   border: 1px solid var(--cyan);
   box-shadow: 0 10px 40px rgba(0,238,255,0.15);
+  background: var(--surface2);
+  border-radius: 1.5rem;
 }
 
 .chat-window.closed {

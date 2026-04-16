@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
 
-import heroImg from '../assets/hero.png';
+import heroImg from '../assets/mypfp.jpg';
 
 function PhotoAvatar() {
   return (

@@ -116,7 +116,7 @@ export default function ChatBot({ onParticleEffect }) {
       </div>
 
       {/* Chat Window */}
-      <div className={`chat-window glass ${open ? '' : 'closed'}`}>
+      <div className={`chat-window ${open ? '' : 'closed'}`}>
         {/* Header */}
         <div className="chat-header">
           <div className="chat-header-avatar">
